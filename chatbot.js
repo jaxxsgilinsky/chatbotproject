@@ -1,3 +1,12 @@
+function returnTime(){
+  var now = new Date(Date.now());
+  var hours = now.getHours();
+  var minutes = now.getMinutes();
+  var timeString = hours + ":" + minutes;
+  return timeString;
+}
+
+
 var responses = {
   "question": "answers",
   "Hey": "Hello there human",
@@ -13,7 +22,7 @@ var responses = {
   "What time is it?": returnTime()
 }
 
-   function askedQuestion() {
+   function askQuestion() {
    var question = $("#input").val()
 
    $("#chat-area").prepend(question + "<br/>")
