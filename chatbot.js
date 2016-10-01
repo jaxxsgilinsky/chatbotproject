@@ -13,11 +13,25 @@ var responses = {
   "What time is it?": returnTime()
 }
 
-function askedQuestion() {
-  var question = $("#input").val()
+   function askedQuestion() {
+   var question = $("#input").val()
 
-  $("#chat-area").prepend(question + "<br/>")
+   $("#chat-area").prepend(question + "<br/>")
 
-  var answers = responses[question]
+   var answers = responses[question]
 
+   if (answers == undefined) {
+
+   var fallback = ["I'm not sure of what you're asking", "Try asking me another question", "I'm sorry, I'm not following along", "Why are you asking me this?", "I don't know the answer"];
+   var rand = Math.floor((Math.random() * fallback.length));
+   $("#chat-area").prepend(fallback[rand] + "<br>");
+  }
+   else {
+   $("#chat-area").prepend(answers)
+  }
 }
+   $(document).keyup(function(event)) {
+     if (event.keyCode == 13) {
+       askQuestion();
+     }
+ });
