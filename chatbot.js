@@ -25,7 +25,7 @@ var responses = {
    function askQuestion() {
    var question = $("#input").val()
 
-   $("#chat-area").prepend(question + "<br/>")
+   $("#chat-area").prepend("Me: " + question + "<br/>")
 
    var answers = responses[question]
 
@@ -33,15 +33,15 @@ var responses = {
 
    var fallback = ["I'm not sure of what you're asking", "Try asking me another question", "I'm sorry, I'm not following along", "Why are you asking me this?", "I don't know the answer"];
    var rand = Math.floor((Math.random() * fallback.length));
-   $("#chat-area").prepend(fallback[rand] + "<br>");
+   $("#chat-area").prepend("Bot: " + fallback[rand] + "<br>");
   }
 
    else {
-   $("#chat-area").prepend(answers)
+   $("#chat-area").prepend("Bot: " + answers + "<br/>")
   }
 }
 
-   $(document).keyup(function(event)) {
+   $(document).keyup(function(event) {
      if (event.keyCode == 13) {
        askQuestion();
      }
