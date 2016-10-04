@@ -35,10 +35,12 @@ var responses = {
    var rand = Math.floor((Math.random() * fallback.length));
    $("#chat-area").prepend(fallback[rand] + "<br>");
   }
+
    else {
    $("#chat-area").prepend(answers)
   }
 }
+
    $(document).keyup(function(event)) {
      if (event.keyCode == 13) {
        askQuestion();
